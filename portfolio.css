@@ -1,0 +1,343 @@
+/* Variable Warna & Style Dasar */
+:root {
+    --bg-dark: #0a0f1d;        /* Deep Dark Navy */
+    --bg-card: #111827;        /* Card Background */
+    --bg-alt: #0d1322;         /* Alternating Background */
+    --text-primary: #f8fafc;   /* Primary Text */
+    --text-secondary: #94a3b8; /* Secondary Text */
+    --accent: #6366f1;         /* Indigo / Modern Violet */
+    --accent-glow: rgba(99, 102, 241, 0.25);
+    --emerald: #10b981;
+    --border: #1e293b;         /* Border Color */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header & Navbar */
+header {
+    background-color: rgba(10, 15, 29, 0.85);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--emerald);
+}
+
+/* Section Common */
+.section {
+    padding: 80px 0;
+}
+
+.bg-alt {
+    background-color: var(--bg-alt);
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 35px;
+    text-align: center;
+    color: var(--text-primary);
+    position: relative;
+    font-weight: 700;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--emerald);
+    margin: 12px auto 0;
+    border-radius: 2px;
+}
+
+/* Hero Section */
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.badge {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--emerald);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    border: 1px solid var(--emerald);
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    margin: 5px 0;
+    line-height: 1.2;
+}
+
+.highlight {
+    color: var(--emerald);
+    display: block;
+    font-size: 1.4rem;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+.hero-text p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-top: 15px;
+}
+
+.hero-image img {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--emerald);
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.2);
+}
+
+/* Tombol Filter Kategori Interaktif */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-btn:hover {
+    border-color: var(--accent);
+    color: var(--text-primary);
+}
+
+.filter-btn.active {
+    background-color: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* Grid Utama Kartu */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+    gap: 30px;
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    background-color: var(--bg-card);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* SMART ADAPTIVE GALLERY (Otomatis Menyesuaikan Jumlah Gambar) */
+.card-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    background: var(--border);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.card-gallery img {
+    flex: 1 1 28%; 
+    min-width: 110px;
+    height: 130px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Aturan Khusus jika Gambar Hanya 1 Biji */
+.card-gallery img:only-child {
+    flex: 1 1 100%;
+    height: 220px;
+}
+
+.card-body {
+    padding: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body h3 {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+    color: var(--text-primary);
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.card-meta {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--emerald);
+    margin-bottom: 14px;
+    font-weight: 600;
+}
+
+/* List & Sub-list */
+.card-list {
+    margin-top: 10px;
+    margin-left: 18px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.card-list li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.sub-list {
+    margin-top: 6px;
+    margin-left: 18px;
+    list-style-type: circle;
+}
+
+.sub-list li {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+/* Buttons & Contact */
+.text-center {
+    text-align: center;
+}
+
+.contact-buttons {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--emerald);
+    color: #042f2e;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+}
+
+.btn-secondary {
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    background: var(--bg-card);
+}
+
+.btn-secondary:hover {
+    border-color: var(--emerald);
+    color: var(--emerald);
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
